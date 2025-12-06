@@ -1,0 +1,23 @@
+public class Maingeometria {
+    public static void main(String[] args) {
+        Rectangulo miRectangulo = new Rectangulo(10.0, 5.0, "Mesa");
+
+        System.out.println("--- Información de la Figura ---");
+        System.out.println("Etiqueta: " + miRectangulo.getEtiqueta());
+        System.out.println("Base: " + miRectangulo.getBase());
+        System.out.println("Altura: " + miRectangulo.getAltura());
+        
+        System.out.println("\n--- Calculando Área ---");
+        double area = miRectangulo.calcularArea();
+        System.out.println("El área es: " + area);
+        
+        System.out.println("\n--- Calculando Perímetro ---");
+        double perimetro = miRectangulo.calcularPerimetro();
+        System.out.println("El perímetro es: " + perimetro);
+        
+        System.out.println("\n--- Modificando dimensiones ---");
+        miRectangulo.setBase(20.0);
+        System.out.println("Nueva base: " + miRectangulo.getBase());
+        System.out.println("Nuevo perímetro: " + miRectangulo.calcularPerimetro());
+    }
+}
