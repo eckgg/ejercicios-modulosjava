@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Principal {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== PROCESADOR DE TEXTO ===");
+
+        System.out.print("Ingrese la cadena de texto inicial: ");
+        String texto = lector.nextLine();
+
+        ProcesadorTexto miProcesador = new ProcesadorTexto(texto);
+
+        System.out.println("\n--- Conteo de Espacios ---");
+        int cantidadEspacios = miProcesador.contarEspacios();
+        System.out.println("La cadena tiene " + cantidadEspacios + " espacios en blanco.");
+
+        System.out.println("\n--- Agregar Prefijo ---");
+        System.out.print("Ingrese el prefijo que desea agregar: ");
+        String prefijo = lector.nextLine();
+
+        String textoConPrefijo = miProcesador.agregarPrefijo(prefijo);
+
+        System.out.println("Resultado: " + textoConPrefijo);
+
+        lector.close();
+    }
+}
