@@ -1,0 +1,51 @@
+Vuelo {
+
+    private String codigoVuelo;
+    private int capacidadMaxima;
+    private int asientosReservados;
+
+    public Vuelo(String codigo, int capacidad) {
+        this.codigoVuelo = codigo;
+        if (capacidad > 0) {
+            this.capacidadMaxima = capacidad;
+        } else {
+            this.capacidadMaxima = 100;
+        }
+        this.asientosReservados = 0;
+    }
+
+    public String getCodigoVuelo() {
+        return this.codigoVuelo;
+    }
+
+    public void setCodigoVuelo(String codigo) {
+        this.codigoVuelo = codigo;
+    }
+
+    public int getCapacidadMaxima() {
+        return this.capacidadMaxima;
+    }
+
+    public void setCapacidadMaxima(int capacidad) {
+        if (capacidad > 0) {
+            this.capacidadMaxima = capacidad;
+        }
+    }
+
+    public int getAsientosReservados() {
+        return this.asientosReservados;
+    }
+
+    public void reservarAsiento() {
+        if (this.asientosReservados < this.capacidadMaxima) {
+            this.asientosReservados = this.asientosReservados + 1;
+            System.out.println("Reserva exitosa. Asiento confirmado.");
+        } else {
+            System.out.println("Fallo: El vuelo está lleno.");
+        }
+    }
+
+    public double calcularOcupacion() {
+        double ocupacion = (double) this.asientosReservados / this.capacidadMaxima * 100;
+        return ocupacion;
+    }
