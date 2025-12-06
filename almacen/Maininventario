@@ -1,1 +1,19 @@
+public class Maininventario {
+    public static void main(String[] args) {
+        Inventario producto = new Inventario("LAP-X200", 10, 500.0);
 
+        System.out.println("--- Información Inicial ---");
+        System.out.println("Producto: " + producto.getReferenciaAlmacen());
+        System.out.println("Stock actual: " + producto.getCantidadStock());
+        System.out.println("Precio: " + producto.getPrecioUnitario());
+
+        System.out.println("\n--- Calculando Valor del Inventario ---");
+        double total = producto.calcularValorTotal();
+        System.out.println("Valor total en almacén: " + total);
+        System.out.println("\n--- Registrando Entrada de Mercancía ---");
+        producto.ingresarMercancia(5);
+
+        System.out.println("Stock actualizado: " + producto.getCantidadStock());
+        System.out.println("Nuevo valor total: " + producto.calcularValorTotal());
+    }
+}
