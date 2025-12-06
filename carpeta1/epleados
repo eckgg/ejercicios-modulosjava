@@ -1,0 +1,64 @@
+public class Empleado {
+
+    private String claveEmpleado;
+    private double salarioMensual;
+    private double porcentajeRetencion;
+
+    public Empleado(String clave, double salario, double retencion) {
+        this.claveEmpleado = clave;
+
+        if (salario > 0) {
+            this.salarioMensual = salario;
+        } else {
+            this.salarioMensual = 0;
+            System.out.println("Aviso: Salario inválido. Se asignó 0.");
+        }
+
+        if (retencion >= 0) {
+            this.porcentajeRetencion = retencion;
+        } else {
+            this.porcentajeRetencion = 0;
+        }
+    }
+
+    public String getClaveEmpleado() {
+        return claveEmpleado;
+    }
+
+    public void setClaveEmpleado(String clave) {
+        this.claveEmpleado = clave;
+    }
+
+    public double getSalarioMensual() {
+        return salarioMensual;
+    }
+
+    public void setSalarioMensual(double salario) {
+            this.salarioMensual = salario;
+    }
+
+    public double getPorcentajeRetencion() {
+        return porcentajeRetencion;
+    }
+
+    public void setPorcentajeRetencion(double porcentaje) {
+            this.porcentajeRetencion = porcentaje;
+    }
+
+    public double calcularSalarioNeto() {
+        double montoImpuestos = this.salarioMensual * (this.porcentajeRetencion / 100);
+        double salarioNeto = this.salarioMensual - montoImpuestos;
+        return salarioNeto;
+    }
+
+    public void aplicarAumento(double porcentajeAumento) {
+        if (porcentajeAumento > 0) {
+            double montoAumento = this.salarioMensual * (porcentajeAumento / 100);
+            // Actualizamos el atributo interno
+            this.salarioMensual = this.salarioMensual + montoAumento;
+            System.out.println("Aumento aplicado correctamente.");
+        } else {
+            System.out.println("Error: El porcentaje de aumento debe ser positivo.");
+        }
+    }
+}
