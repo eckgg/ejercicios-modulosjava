@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Mainbanco {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== BIENVENIDO AL BANCO ===");
+        System.out.print("Ingrese el Número de Cuenta: ");
+        String num = lector.nextLine(); // Lee texto
+        System.out.print("Ingrese el Nombre del Titular: ");
+        String nombre = lector.nextLine(); // Lee texto
+        System.out.print("Ingrese el Saldo Inicial: ");
+        double saldo = lector.nextDouble(); // Lee números con decimales
+
+        CuentaAhorros miCuenta = new CuentaAhorros(num, nombre, saldo);
+        System.out.println("\nCuenta creada exitosamente para " + miCuenta.getNombreTitular());
+        System.out.print("\n¿Cuánto desea depositar?: ");
+        double montoDeposito = lector.nextDouble();
+        miCuenta.depositar(montoDeposito); // Llamamos al método del objeto
+        System.out.print("\n¿Cuánto desea retirar?: ");
+        double montoRetiro = lector.nextDouble();
+        miCuenta.retirar(montoRetiro); // Llamamos al método del objeto
+        System.out.println("\n=== RESUMEN FINAL ===");
+        System.out.println("Cliente: " + miCuenta.getNombreTitular());
+        System.out.println("Saldo Final: $" + miCuenta.getSaldoActual());
+
+    }
+}
