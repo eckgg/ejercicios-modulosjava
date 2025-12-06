@@ -1,0 +1,55 @@
+public class Temperatura {
+
+    private double valor;
+    private int unidad;
+
+    public Temperatura(double valor, int unidad) {
+        this.valor = valor;
+        this.unidad = unidad;
+    }
+
+    public double getValor() {
+        return this.valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public int getUnidad() {
+        return this.unidad;
+    }
+
+    public void setUnidad(int unidad) {
+        this.unidad = unidad;
+    }
+
+
+    public void convertir() {
+        if (this.unidad == 1) {
+            this.valor = (this.valor * 9 / 5) + 32;
+            this.unidad = 2;
+        } else {
+            if (this.unidad == 2) {
+                this.valor = (this.valor - 32) * 5 / 9;
+                this.unidad = 1;
+            }
+        }
+    }
+
+    public boolean esExtrema() {
+        double valorEnCelsius;
+
+        if (this.unidad == 2) {
+            valorEnCelsius = (this.valor - 32) * 5 / 9;
+        } else {
+            valorEnCelsius = this.valor;
+        }
+
+        if (valorEnCelsius > 40) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
