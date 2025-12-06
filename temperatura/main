@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Principal {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== REGISTRO DE TEMPERATURA ===");
+
+        System.out.print("Ingrese la unidad (Celsius 1 /Fahrenheit 2): ");
+        int unidad = lector.nextInt();
+
+        System.out.print("Ingrese el valor de la temperatura: ");
+        double valor = lector.nextDouble();
+
+        Temperatura miTemperatura = new Temperatura(valor, unidad);
+
+        System.out.println("\nDatos registrados:");
+        System.out.println("Valor: " + miTemperatura.getValor() + " " + miTemperatura.getUnidad());
+
+        System.out.println("\n--- Verificación de Clima Extremo ---");
+        boolean esExtrema = miTemperatura.esExtrema();
+
+        if (esExtrema) {
+            System.out.println("ALERTA: La temperatura es considerada EXTREMA.");
+        } else {
+            System.out.println("Estado: Temperatura dentro de rangos normales.");
+        }
+
+        System.out.println("\n--- Conversión de Unidades ---");
+        System.out.println("Convirtiendo valores internamente...");
+
+        miTemperatura.convertir();
+
+        System.out.println("Nuevo Valor: " + miTemperatura.getValor());
+        System.out.println("Nueva Unidad: " + miTemperatura.getUnidad());
+
+    }
+}
