@@ -1,0 +1,49 @@
+public class Inventario {
+    private String referenciaAlmacen;
+    private int cantidadStock;
+    private double precioUnitario;
+
+    public Inventario(String ref, int cantidad, double precio) {
+        this.referenciaAlmacen = ref;
+        this.cantidadStock = cantidad;
+        this.precioUnitario = precio;
+    }
+
+    public String getReferenciaAlmacen() {
+        return this.referenciaAlmacen;
+    }
+
+    public void setReferenciaAlmacen(String ref) {
+        this.referenciaAlmacen = ref;
+    }
+
+    public int getCantidadStock() {
+        return this.cantidadStock;
+    }
+
+    public void setCantidadStock(int cantidad) {
+            this.cantidadStock = cantidad;
+    }
+
+    public double getPrecioUnitario() {
+        return this.precioUnitario;
+    }
+
+    public void setPrecioUnitario(double precio) {
+            this.precioUnitario = precio;
+    }
+
+    public void ingresarMercancia(int cantidadEntrada) {
+        if (cantidadEntrada > 0) {
+            this.cantidadStock = this.cantidadStock + cantidadEntrada;
+            System.out.println("Entrada registrada. Nuevo stock: " + this.cantidadStock);
+        } else {
+            System.out.println("Error: La cantidad de entrada debe ser positiva.");
+        }
+    }
+
+    public double calcularValorTotal() {
+        double valorTotal = this.cantidadStock * this.precioUnitario;
+        return valorTotal;
+    }
+}
