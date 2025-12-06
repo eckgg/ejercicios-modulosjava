@@ -1,0 +1,37 @@
+public class ProcesadorTexto {
+
+    private String textoActual;
+
+    public ProcesadorTexto(String texto) {
+        this.textoActual = texto;
+    }
+
+    public String getTextoActual() {
+        return this.textoActual;
+    }
+
+    public void setTextoActual(String texto) {
+        this.textoActual = texto;
+    }
+
+
+    public String agregarPrefijo(String prefijo) {
+        String nuevoTexto = prefijo + this.textoActual;
+        return nuevoTexto;
+    }
+
+    public int contarEspacios() {
+        int espacios = 0;
+        int i = 0;
+        int longitud = this.textoActual.length();
+
+        while (i < longitud) {
+            char caracter = this.textoActual.charAt(i);
+            if (caracter == ' ') {
+                espacios = espacios + 1;
+            }
+            i = i + 1;
+        }
+        return espacios;
+    }
+}
