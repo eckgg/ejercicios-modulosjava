@@ -1,0 +1,52 @@
+public class Automovil {
+
+    private String marca;
+    private int anioFabricacion;
+    private double velocidadMaxima;
+
+    public Automovil(String marca, int anio, double velocidad) {
+        this.marca = marca;
+        this.anioFabricacion = anio;
+        this.velocidadMaxima = velocidad;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getAnioFabricacion() {
+        return anioFabricacion;
+    }
+
+    public void setAnioFabricacion(int anio) {
+            this.anioFabricacion = anio;
+    }
+
+    public double getVelocidadMaxima() {
+        return velocidadMaxima;
+    }
+
+    public void setVelocidadMaxima(double velocidad) {
+            this.velocidadMaxima = velocidad;
+    }
+
+    public String encender() {
+        if (this.anioFabricacion > 1990) {
+            return "Encendido exitoso";
+        } else {
+            return "Fallo al encender: El vehículo es demasiado antiguo";
+        }
+    }
+
+    public int calcularAntiguedad(int anioActual) {
+        int antiguedad = anioActual - this.anioFabricacion;
+        if (antiguedad < 0) {
+            return 0;
+        }
+        return antiguedad;
+    }
+}
