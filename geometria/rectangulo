@@ -1,0 +1,45 @@
+public class Rectangulo {
+    private double base;
+    private double altura;
+    private String etiqueta;
+
+    public Rectangulo(double base, double altura, String etiqueta) {
+        this.base = base;
+        this.altura = altura;
+        this.etiqueta = etiqueta;
+    }
+
+    public double getBase() {
+        return this.base;
+    }
+
+    public void setBase(double nuevaBase) {
+            this.base = nuevaBase;
+    }
+
+    public double getAltura() {
+        return this.altura;
+    }
+
+    public void setAltura(double nuevaAltura) {
+            this.altura = nuevaAltura;
+    }
+
+    public String getEtiqueta() {
+        return this.etiqueta;
+    }
+
+    public void setEtiqueta(String nuevaEtiqueta) {
+        this.etiqueta = nuevaEtiqueta;
+    }
+
+    public double calcularArea() {
+        double area = this.base * this.altura;
+        return area;
+    }
+
+    public double calcularPerimetro() {
+        double perimetro = 2 * (this.base + this.altura);
+        return perimetro;
+    }
+}
