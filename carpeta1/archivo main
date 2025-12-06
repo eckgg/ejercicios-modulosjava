@@ -1,1 +1,40 @@
-codigo
+import java.util.Scanner;
+
+public class Mainempleoados {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== SISTEMA DE NÓMINA DE EMPLEADOS ===");
+        
+        System.out.print("Ingrese la Clave del Empleado (ID): ");
+        String clave = lector.nextLine();
+
+        System.out.print("Ingrese el Salario Mensual Bruto: $");
+        double salario = lector.nextDouble();
+
+        System.out.print("Ingrese el Porcentaje de Retención ");
+        double retencion = lector.nextDouble();
+        
+        Empleado miEmpleado = new Empleado(clave, salario, retencion);
+
+        System.out.println("\n... Empleado registrado exitosamente ...");
+        
+        System.out.println("\n--- Cálculo de Salario Neto ---");
+        System.out.println("Salario Bruto: $" + miEmpleado.getSalarioMensual());
+        System.out.println("Retención: " + miEmpleado.getPorcentajeRetencion() + "%");
+        
+        double neto = miEmpleado.calcularSalarioNeto();
+        System.out.println(">> El Salario Neto a pagar es: $" + neto);
+        
+        System.out.println("\n--- Gestión de Aumentos ---");
+        System.out.print("Ingrese el porcentaje de aumento a aplicar: ");
+        double porcentajeAumento = lector.nextDouble();
+        
+        miEmpleado.aplicarAumento(porcentajeAumento);
+
+        System.out.println("Nuevo Salario Mensual Bruto: $" + miEmpleado.getSalarioMensual());
+        
+        System.out.println("Nuevo Salario Neto estimado: $" + miEmpleado.calcularSalarioNeto());
+        
+    }
+}
