@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Principal {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== SISTEMA DE RESERVAS AÉREAS ===");
+
+
+        Vuelo miVuelo = new Vuelo("vuelo 17-2", 50);
+        
+        System.out.println("Código: " + miVuelo.getCodigoVuelo());
+        System.out.println("Capacidad: " + miVuelo.getCapacidadMaxima());
+        System.out.println("Reservas actuales: " + miVuelo.getAsientosReservados());
+
+        System.out.print("\n¿Cuántos asientos desea reservar ahora?: ");
+        int cantidadReservas = lector.nextInt();
+
+        int contador = 0;
+        while (contador < cantidadReservas) {
+            miVuelo.reservarAsiento();
+            contador = contador + 1;
+        }
+
+        System.out.println("\n--- Estado Final del Vuelo ---");
+        System.out.println("Asientos ocupados: " + miVuelo.getAsientosReservados());
+        System.out.println("Asientos disponibles: " + (miVuelo.getCapacidadMaxima() - miVuelo.getAsientosReservados()));
+
+        double porcentaje = miVuelo.calcularOcupacion();
+        System.out.println("Porcentaje de ocupación: " + porcentaje + "%");
+        
