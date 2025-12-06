@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Maintarea {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== GESTOR DE TAREAS ===");
+
+        System.out.print("nombre de la tarea: ");
+        String desc = lector.nextLine();
+
+        System.out.print("Ingrese la prioridad (Alta, Media, Baja): ");
+        String prio = lector.nextLine();
+
+        Tarea miTarea = new Tarea(desc, prio);
+
+        System.out.println("\nTarea registrada: " + miTarea.getDescripcion());
+        System.out.println("Prioridad actual: " + miTarea.getPrioridad());
+        System.out.println("Estado inicial: " + (miTarea.isEstaCompletada() ? "Completada" : "Pendiente"));
+
+        boolean esUrgente = miTarea.esUrgente();
+        if (esUrgente) {
+            System.out.println("AVISO: Esta tarea es URGENTE.");
+        } else {
+            System.out.println("Estado: Tarea normal.");
+        }
+
+        System.out.print("\n¿Desea marcar la tarea como completada? (si/no): ");
+        String respuesta = lector.nextLine();
+
+        if (respuesta.equals("si")) {
+            miTarea.marcarComoCompletada();
+            System.out.println("La tarea ha sido marcada como completada.");
+        }
+
+        System.out.println("\n--- Estado Final ---");
+        System.out.println("Tarea: " + miTarea.getDescripcion());
+        System.out.println("Completada: " + miTarea.isEstaCompletada());
+
+        if (miTarea.esUrgente()) {
+            System.out.println("Prioridad: URGENTE");
+        } else {
+            System.out.println("Prioridad: No urgente");
+        }
+        
+    }
+}
