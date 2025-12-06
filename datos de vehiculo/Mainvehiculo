@@ -1,1 +1,40 @@
+import java.util.Scanner;
 
+public class Maincarros {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println("=== SISTEMA DE REGISTRO VEHICULAR ===");
+        
+        System.out.print("Ingrese la Marca del vehículo: ");
+        String marcaIngresada = lector.nextLine();
+
+        System.out.print("Ingrese el Año de Fabricación (ej. 2015): ");
+        int anioIngresado = lector.nextInt();
+
+        System.out.print("Ingrese la Velocidad Máxima (km/h): ");
+        double velocidadIngresada = lector.nextDouble();
+        
+        Automovil miAuto = new Automovil(marcaIngresada, anioIngresado, velocidadIngresada);
+
+        System.out.println("\n... Vehículo registrado exitosamente ...");
+        System.out.println("Coche: " + miAuto.getMarca() + " | Modelo: " + miAuto.getAnioFabricacion());
+        
+        System.out.println("\n--- Prueba de Encendido ---");
+        System.out.println("Intentando arrancar el motor...");
+        String resultadoEncendido = miAuto.encender();
+        System.out.println("Resultado: " + resultadoEncendido);
+        
+        System.out.println("\n--- Cálculo de Antigüedad ---");
+        System.out.print("Para calcular la antigüedad, ingrese el año actual: ");
+        int anioActualSistema = lector.nextInt();
+
+        int edadCoche = miAuto.calcularAntiguedad(anioActualSistema);
+        System.out.println("El vehículo tiene " + edadCoche + " años de antigüedad.");
+        
+        if (edadCoche >= 30) {
+            System.out.println("(Nota: Este vehículo se considera un Clásico)");
+        }
+
+    }
+}
